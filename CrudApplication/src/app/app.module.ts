@@ -6,6 +6,8 @@ import { AddComponent } from './add/add.component';
 import { UpdateComponent } from './update/update.component';
 import { DeleteComponent } from './delete/delete.component';
 import { AppRoutingModule } from './/app-routing.module';
+import { routes } from './/app-routing.module';
+import { RouterModule } from '../../node_modules/@angular/router';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,8 @@ import { AppRoutingModule } from './/app-routing.module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
