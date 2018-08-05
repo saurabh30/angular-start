@@ -21,6 +21,20 @@ export class EmployeesComponent implements OnInit {
     this.employeeService.getEmployees()
         .subscribe(employees => this.employees = employees);
   }
+
+  add(name: string): void {
+    name = name.trim();
+    if (!name) { return; }
+    this.employeeService.addHero({ name } as Employee)
+      .subscribe(hero => {
+        this.employees.push(hero);
+      });
+  }  
+
+  delete(employee: Employee): void {
+    this.employees = this.employees.filter(h => h !== employee);
+    this.employeeService.deleteEmployee(employee).subscribe();
+  }
   ngOnInit() {
     this.getEmployees();
   }
