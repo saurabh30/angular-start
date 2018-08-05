@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { EMPLOYEES } from '../mock-employees';
+import { EmployeeService } from '../employee.service';
 import { Employee } from '../employee';
 
 @Component({
@@ -10,15 +10,19 @@ import { Employee } from '../employee';
 })
 export class EmployeesComponent implements OnInit {
 
-  employees = EMPLOYEES ;
+  employees : Employee[] ;
   selectedEmployee: Employee;
   
   onSelect(employee: Employee): void {
   this.selectedEmployee = employee;
 }
-  constructor() { }
-
+  constructor(private employeeService: EmployeeService) { }
+  getEmployees(): void {
+    this.employeeService.getEmployees()
+        .subscribe(employees => this.employees = employees);
+  }
   ngOnInit() {
+    this.getEmployees();
   }
 
 }
