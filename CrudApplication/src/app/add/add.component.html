@@ -1,3 +1,24 @@
-<p>
-  add works!
-</p>
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    {{ title }}
+  </div>
+  <div class="panel-body">
+    <form>
+      <div class="form-group">
+        <label class="col-md-4"> Name</label>
+        <input type="text" class="form-control" name="empName"/>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Contact No</label>
+        <input type="text" class="form-control" name="empContactNo"/>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Email ID</label>
+        <input type="text" class="form-control" name="empEmailId"/>
+      </div>
+      <div class="form-group" style="text-align:center">
+        <button type="submit" class="btn btn-primary">Add</button>
+      </div>
+    </form>
+  </div>
+</div>
