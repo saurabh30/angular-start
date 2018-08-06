@@ -12,10 +12,7 @@ export class EmployeesComponent implements OnInit {
 
   employees : Employee[] ;
   selectedEmployee: Employee;
-  
-  onSelect(employee: Employee): void {
-  this.selectedEmployee = employee;
-}
+
   constructor(private employeeService: EmployeeService) { }
   getEmployees(): void {
     this.employeeService.getEmployees()

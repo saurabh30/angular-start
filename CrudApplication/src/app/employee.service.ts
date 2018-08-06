@@ -59,14 +59,21 @@ export class EmployeeService {
   }
 
   /** GET hero by id. Will 404 if id not found */
-  getHero(id: number): Observable<Employee> {
+  getEmployee(id: number): Observable<Employee> {
     const url = `${this.heroesUrl}/${id}`;
     return this.http.get<Employee>(url).pipe(
       catchError(this.handleError<Employee>(`getHero id=${id}`))
     );
   }
-
-
+  
+  /** PUT: update the hero on the server */
+  updateHero (employee: Employee): Observable<any> {
+  return this.http.put(this.heroesUrl, employee, httpOptions).pipe(
+ // tap(_ => this.log(`updated hero id=${hero.id}`)),
+    catchError(this.handleError<any>('updateEmployee'))
+  );
+}
+  
   constructor(
     private http: HttpClient) { }
 }

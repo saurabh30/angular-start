@@ -9,6 +9,7 @@ import { InMemoryDataService }  from './in-memory-data.service';
 import { AppComponent } from './app.component';
 import { EmployeesComponent } from './employees/employees.component';
 import { EmployeeDetailComponent } from './employee-detail/employee-detail.component';
+import { AppRoutingModule } from './/app-routing.module';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,9 @@ import { EmployeeDetailComponent } from './employee-detail/employee-detail.compo
 // Remove it when a real server is ready to receive requests.
     HttpClientInMemoryWebApiModule.forRoot(
     InMemoryDataService, { dataEncapsulation: false }
-    )
+    ),
+
+AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
